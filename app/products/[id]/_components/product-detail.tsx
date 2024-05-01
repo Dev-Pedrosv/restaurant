@@ -48,7 +48,7 @@ const ProductDetail = ({
     setQuantity((currentState) => currentState + 1);
 
   return (
-    <div className="py-5">
+    <div className="relative z-50 mt-[-20px] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
       <div className="px-5">
         <div className="flex items-center gap-1">
           <div className="relative h-8 w-8">
