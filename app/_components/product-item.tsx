@@ -3,6 +3,7 @@ import Image from "next/image";
 import { calculateProductTotalPrice, formatCurrency } from "../_helpers/price";
 import Link from "next/link";
 import DiscountBadge from "./discount-bagde";
+import { cn } from "../_lib/utils";
 
 interface ProductItemPros {
   product: Prisma.ProductGetPayload<{
@@ -14,13 +15,17 @@ interface ProductItemPros {
       };
     };
   }>;
+  className?: string;
 }
 
-const ProductItem = ({ product }: ProductItemPros) => {
+const ProductItem = ({ product, className }: ProductItemPros) => {
   return (
-    <Link className="w-[150px] min-w-[150px]" href={`/products/${product.id}`}>
+    <Link
+      className={cn("w-[150px] min-w-[150px]", className)}
+      href={`/products/${product.id}`}
+    >
       <div className="w-full space-y-2">
-        <div className="relative h-[150px] w-full">
+        <div className="relative aspect-square w-full">
           <Image
             src={product.imageUrl}
             alt={product.name}
