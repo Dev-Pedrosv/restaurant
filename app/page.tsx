@@ -16,7 +16,7 @@ const Home = async () => {
         gt: 0,
       },
     },
-    take: 10,
+    take: 20,
     include: {
       restaurant: {
         select: {
@@ -44,13 +44,15 @@ const Home = async () => {
       <div className="space-y-4 pl-5 pt-6">
         <div className="flex justify-between pr-5">
           <h2 className="font-semibold">Pedidos Recomendados</h2>
-          <Button
-            variant={"ghost"}
-            className="h-fit p-0 text-primary hover:bg-transparent"
-          >
-            Ver todos
-            <ChevronRightIcon />
-          </Button>
+          <Link href="/products/recommends">
+            <Button
+              variant={"ghost"}
+              className="h-fit p-0 text-primary hover:bg-transparent"
+            >
+              Ver todos
+              <ChevronRightIcon />
+            </Button>
+          </Link>
         </div>
         <ProductList products={products} />
       </div>
